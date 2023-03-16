@@ -12,10 +12,10 @@ class BallGame:
         self.my_canvas = Canvas(my_window, bg = 'white', \
                            width = my_width, height = my_height)
         self.my_canvas.pack()
-        ballRadius = 20
+        ballRadius = 10
         goalRadius = 20
-        ballX = ballRadius 
-        ballY = ballRadius
+        ballX = ballRadius +100 
+        ballY = ballRadius +100
         goalX = goalRadius 
         goalY = goalRadius 
 
@@ -23,6 +23,9 @@ class BallGame:
                               goalX + goalRadius, my_height/2 - goalRadius,\
                                   fill = "black", tags = "goal")
             
+        #self.my_canvas.create_oval(ballX - ballRadius, ballY + ballRadius,\
+         #                     ballX + ballRadius, ballY - ballRadius,\
+          #                        fill = "red", tags = "disk")
         self.my_canvas.create_oval(ballX - ballRadius, ballY + ballRadius,\
                               ballX + ballRadius, ballY - ballRadius,\
                                   fill = "red", tags = "disk")
@@ -30,8 +33,7 @@ class BallGame:
         self.paddleTop = 50
         self.paddleBottom = 100
         self.my_canvas.create_rectangle(380, self.paddleTop, 390, self.paddleBottom, \
-                                   fill = "black", tags = "paddle")
-        
+                                   fill = "black", tags = "paddle")  
         self.my_canvas.bind("<Key>", self.processKeyEvent)
         self.my_canvas.focus_set() # give the canvas the focus at start-up
         # to receive input from the keyboard
